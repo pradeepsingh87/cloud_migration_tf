@@ -1,0 +1,32 @@
+Module - an isolated , reusable sub-configuration
+Variable - A named container for a typed value
+deployment - The set of resources created by a terraform configuration
+
+
+Use Case
+Migrate an on prem app to cloud 
+    1 - Life and Shift migration 
+    2 - Improve app resilience using AWS Availability Zones
+    3 - Maintain seperate environ:dev , qa and prod
+
+-- Confirm aws creds are set up properly with aws configure 
+aws sts get-caller-identity    
+
+-- Command to create ssh key pair 
+aws ec2 create-key-pair --key-name tf_key --query 'KeyMaterial' --output text > tf_key.pem
+
+
+-- Designing AWs Infra 
+What resources will you need 
+How to design the network design that will meet clients requirements
+
+-- Our AWs Infra
+Linux EC2 instances in AWS. 
+An elastic load balancer. 
+AWS VPC
+subnets
+Internet gateway. 
+route table entry 
+security group
+We'll need to open TLS ports to allow the application to a Linux instances running the front end to communicate with  the public internet through the internet gateway. 
+
